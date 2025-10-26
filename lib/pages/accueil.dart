@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:projet1/widgets/navbarside.dart';
-import 'package:projet1/widgets/redacteur.dart';
+//import 'package:projet1/widgets/redacteur.dart';
+import 'package:projet1/widgets/ajouteurRedacteurpage.dart';
 //import 'package:projet1/widgets/navbarside.dart';
 
 /// ---- PAGE CONTENEUR (Scaffold + AppBar + Drawer + BottomNavigationBar) ----
@@ -24,12 +25,6 @@ class PageAccueil extends StatelessWidget {
         title: const Text("Magazine Infos"),
         centerTitle: true,
         elevation: 4.0,
-        // leading: IconButton(
-        //   icon: Icon(Icons.menu),
-        //   onPressed: () {
-        //     //Drawer();
-        //   },
-        // ),
         actions: [
           IconButton(
             icon: Icon(Icons.search),
@@ -97,66 +92,9 @@ class PageAccueil extends StatelessWidget {
                   onTap: () {
                     onIndexChanged(0);
                     Navigator.pop(context);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => PageAccueil(),
-                    //   ), //route vers accueil
-                    // );
                   },
                 ),
                 Divider(),
-
-                ///
-                // ListTile(
-                //   title: Text("Gérer les articles"), //titre
-                //   leading: Icon(Icons.newspaper), //icone
-                //   trailing: PopupMenuButton(
-                //     // sous menu
-                //     color: Color.fromARGB(255, 226, 126, 173),
-                //     elevation: 50.0,
-                //     icon: Icon(Icons.arrow_right),
-                //     itemBuilder: (context) => [
-                //       // constructeur
-                //       PopupMenuItem(
-                //         // element
-                //         child: Row(
-                //           children: [
-                //             Image(
-                //               image: AssetImage(
-                //                 "assets/images/redacteur0.jpeg",
-                //               ),
-                //               width: 35.0,
-                //               height: 35.0,
-                //             ),
-                //             Padding(
-                //               padding: const EdgeInsets.all(8.0),
-                //               child: Text("Ajouter un article"),
-                //             ),
-                //           ],
-                //         ),
-                //       ),
-                //       PopupMenuItem(
-                //         //2eme element
-                //         child: Row(
-                //           children: [
-                //             Image(
-                //               image: AssetImage(
-                //                 "assets/images/grouperedacteur1.jpeg",
-                //               ),
-                //               width: 35.0,
-                //               height: 35.0,
-                //             ),
-                //             Padding(
-                //               padding: const EdgeInsets.all(10.0),
-                //               child: Text("Liste des articles"),
-                //             ),
-                //           ],
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),   ////
                 ListTile(
                   title: Text("Gérer les rédacteurs"),
                   leading: Icon(Icons.group),
@@ -166,33 +104,11 @@ class PageAccueil extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RedacteurInterface(),
+                        builder: (context) => AjoutRedacteurPage(),
                       ), //route vers accueil
                     );
                   },
-                  // onTap: () {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => RedacteurInterface(),
-                  //     ), //route vers accueil
-                  //   );
-                  // },
                 ),
-                // ListTile(
-                //   title: Text("Paramètres"),
-                //   leading: Icon(Icons.settings),
-                // ),
-                // Divider(), // separation
-                // ListTile(
-                //   title: Text("A propos"),
-                //   leading: Icon(Icons.info_outline_rounded),
-                // ),
-                // ListTile(
-                //   title: Text("F.A.Q"),
-                //   leading: Icon(Icons.question_answer),
-                // ),
-                // ListTile(title: Text("Aide"), leading: Icon(Icons.help)),
               ],
             ),
           ),
@@ -220,12 +136,16 @@ class PageAccueil extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print("Cliqué");
+        onPressed: () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AjoutRedacteurPage()),
+          );
         },
         tooltip: "Click",
         backgroundColor: Colors.deepOrange,
-        child: const Text('+'),
+        //child: const Text('+'),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }
@@ -276,24 +196,6 @@ class _ProfilTab extends StatelessWidget {
     );
   }
 }
-
-// class PartieButton extends StatelessWidget {
-//   const PartieButton({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       padding: const EdgeInsets.all(20),
-//       child: ElevatedButton.icon(
-//         icon: Icon(Icons.add_box),
-//         onPressed: () {
-//           debugPrint('Click');
-//         },
-//         label: Text("Ajouter"),
-//       ),
-//     );
-//   }
-// }
 
 class PartieTitre extends StatelessWidget {
   const PartieTitre({super.key});
