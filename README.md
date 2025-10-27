@@ -18,7 +18,7 @@ L’objectif est d’offrir :
 - une expérience interactive et moderne adaptée au numérique.
 
 # Aperçu 
-![Aperçu de l'application](img/rendu_activite.PNG)
+![Aperçu de l'application](assets/m2.PNG)
 
 <p align="center">
   <img src="assets/m1.PNG " width="250" alt="Capture 1"/>
